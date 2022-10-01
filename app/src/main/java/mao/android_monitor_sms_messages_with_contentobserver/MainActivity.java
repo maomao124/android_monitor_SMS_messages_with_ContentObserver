@@ -101,6 +101,13 @@ public class MainActivity extends AppCompatActivity
                 // 短信内容
                 String content = cursor.getString(cursor.getColumnIndex("body"));
                 Log.d(TAG, "onChange: 短信发送号码：" + sender + ",短信内容：" + content);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("监听到一条短信")
+                        .setMessage("短信发送者：" + sender + "\n内容：" + content)
+                        .setPositiveButton("我知道了", null)
+                        .create()
+                        .show();
             }
             cursor.close();
         }
